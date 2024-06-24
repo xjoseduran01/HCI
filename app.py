@@ -5,7 +5,7 @@ from routes.test import test_bp
 from routes.resultadostest import testrealizado_bp
 from routes.test_fecha import test_fecha_id_bp
 from routes.respuestas import respuestas_bp
-from routes.heatmap import heatmap_bp
+
 from flask_sqlalchemy import SQLAlchemy
 from config import DATABASE_CONNECTION_URI
 from flask_cors import CORS
@@ -33,7 +33,7 @@ app.register_blueprint(test_bp)
 app.register_blueprint(testrealizado_bp)
 app.register_blueprint(test_fecha_id_bp)
 app.register_blueprint(respuestas_bp)
-app.register_blueprint(heatmap_bp)
+
 
 if __name__ == '__main__':
   app.run(port=5000)
