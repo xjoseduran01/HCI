@@ -35,12 +35,12 @@ def ver_cita():
                 fecha_formateada = None
 
             cita_data = {
-                'nombre_usuario': nombre_usuario,
-                'nombre_area': nombre_area,
-                'dato_horario': dato_horario,
+                'nombreUsuario': nombre_usuario,
+                'nombreArea': nombre_area,
+                'datoHorario': dato_horario,
                 'dia': dia,
                 'mes': mes,
-                'fecha_formateada': fecha_formateada
+                'fechaFormateada': fecha_formateada
             }
             lista_citas.append(cita_data)
         
