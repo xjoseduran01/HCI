@@ -5,11 +5,8 @@ from models.usuarios import Usuarios
 from models.areas import Areas
 from utils.db import db
 from datetime import datetime
-from flask_babel import Babel
 
 vercita_bp = Blueprint('vercita', __name__)
-
-
 
 @vercita_bp.route('/VerCita', methods=['GET'])
 def ver_cita():
@@ -30,8 +27,8 @@ def ver_cita():
             if cita.fecha:
                 fechacita = cita.fecha
                 dia = fechacita.day
-                mes = fechacita.strftime('%b').capitalize()  # Abreviatura del mes en mayúsculas (EJ: JAN, FEB)
-                fecha_formateada = fechacita.strftime('%d de %B').capitalize()  # Ejemplo: 5 de Mayo
+                mes = fechacita.strftime('%b').upper()  # Abreviatura del mes en mayúsculas (EJ: JAN, FEB)
+                fecha_formateada = fechacita.strftime('%d de %B')  # Ejemplo: 5 de Mayo
             else:
                 dia = None
                 mes = None
