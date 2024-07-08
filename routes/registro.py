@@ -5,7 +5,6 @@ from utils.db import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash
 
-# Crea un Blueprint para la autenticación
 registro_bp = Blueprint('registrar_usuarios', __name__)
 
 @registro_bp.route('/registrar', methods=['POST'])

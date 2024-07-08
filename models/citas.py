@@ -7,17 +7,20 @@ class Citas(db.Model):
     areaid = db.Column(db.Integer)
     fecha = db.Column(db.Date)
     horarioid = db.Column(db.Integer)
+    doctor = db.Column(db.String(100))
 
-    def __init__(self, usuarioid, areaid, fecha, horarioid):
+    def __init__(self, usuarioid, areaid, fecha, horarioid, doctor):
         self.usuarioid = usuarioid
         self.areaid = areaid
         self.fecha = fecha
         self.horarioid = horarioid
+        self.doctor = doctor
         
     def serialize(self):
         return {
             'usuarioid': self.usuarioid,
             'areaid': self.areaid,
             'fecha': self.fecha.strftime('%d-%m-%Y') if self.fecha else None,
-            'horarioid': self.horarioid
+            'horarioid': self.horarioid,
+            'doctor': self.doctor
         }

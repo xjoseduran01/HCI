@@ -1,15 +1,12 @@
 from flask import Flask
 from routes.login import login_bp
 from routes.registro import registro_bp
-from routes.test import test_bp
-from routes.resultadostest import testrealizado_bp
-from routes.test_fecha import test_fecha_id_bp
-from routes.respuestas import respuestas_bp
 from routes.datos import data_bp
 from routes.nuevacita import citas_bp
 from routes.vercita import vercita_bp
 from flask_sqlalchemy import SQLAlchemy
 from config import DATABASE_CONNECTION_URI
+from utils.mail import mail_instance, configure_mail
 from flask_cors import CORS
 from utils.db import db
 from flask_babel import Babel
@@ -29,14 +26,12 @@ app.config["SQLALCHEMY_POOL_RECYCLE"] = 1800
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['BABEL_DEFAULT_LOCALE'] = 'es'
 
+configure_mail(app)
+
 db.init_app(app)
 
 app.register_blueprint(login_bp)
 app.register_blueprint(registro_bp)
-app.register_blueprint(test_bp)
-app.register_blueprint(testrealizado_bp)
-app.register_blueprint(test_fecha_id_bp)
-app.register_blueprint(respuestas_bp)
 app.register_blueprint(data_bp)
 app.register_blueprint(citas_bp)
 app.register_blueprint(vercita_bp)
