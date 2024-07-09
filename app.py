@@ -10,7 +10,7 @@ from config import DATABASE_CONNECTION_URI
 from utils.mail import mail_instance, configure_mail
 from flask_cors import CORS
 from utils.db import db
-from flask_babel import Babel
+
 app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": "*"}})
